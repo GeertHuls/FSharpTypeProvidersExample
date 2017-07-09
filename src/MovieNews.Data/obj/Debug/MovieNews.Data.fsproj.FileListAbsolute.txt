@@ -7,3 +7,6 @@ C:\Projects\FSharpTypeProvidersExample\src\MovieNews.Data\bin\Debug\FSharp.Core.
 C:\Projects\FSharpTypeProvidersExample\src\MovieNews.Data\obj\Debug\MovieNews.Data.dll
 C:\Projects\FSharpTypeProvidersExample\src\MovieNews.Data\obj\Debug\MovieNews.Data.pdb
 c:\Projects\FSharpTypeProvidersExample\src\MovieNews.Data\obj\Debug\MovieNews.Data.fsprojResolveAssemblyReference.cache
+c:\Projects\FSharpTypeProvidersExample\src\MovieNews.Data\bin\Debug\FSharp.Data.dll
+c:\Projects\FSharpTypeProvidersExample\src\MovieNews.Data\bin\Debug\FSharp.Data.pdb
+c:\Projects\FSharpTypeProvidersExample\src\MovieNews.Data\bin\Debug\FSharp.Data.xml
