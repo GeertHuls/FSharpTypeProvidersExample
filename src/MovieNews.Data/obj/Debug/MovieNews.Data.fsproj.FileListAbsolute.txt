@@ -1,0 +1,9 @@
+C:\Projects\FSharpTypeProvidersExample\src\MovieNews.Data\bin\Debug\MovieNews.Data.XML
+C:\Projects\FSharpTypeProvidersExample\src\MovieNews.Data\bin\Debug\MovieNews.Data.dll
+C:\Projects\FSharpTypeProvidersExample\src\MovieNews.Data\bin\Debug\MovieNews.Data.pdb
+C:\Projects\FSharpTypeProvidersExample\src\MovieNews.Data\bin\Debug\FSharp.Core.dll
+C:\Projects\FSharpTypeProvidersExample\src\MovieNews.Data\bin\Debug\System.ValueTuple.dll
+C:\Projects\FSharpTypeProvidersExample\src\MovieNews.Data\bin\Debug\FSharp.Core.xml
+C:\Projects\FSharpTypeProvidersExample\src\MovieNews.Data\obj\Debug\MovieNews.Data.dll
+C:\Projects\FSharpTypeProvidersExample\src\MovieNews.Data\obj\Debug\MovieNews.Data.pdb
+c:\Projects\FSharpTypeProvidersExample\src\MovieNews.Data\obj\Debug\MovieNews.Data.fsprojResolveAssemblyReference.cache
