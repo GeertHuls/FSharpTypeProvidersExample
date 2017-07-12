@@ -59,6 +59,7 @@
     <Compile Include="Netflix.fs" />
     <Compile Include="NYTReview.fs" />
     <Compile Include="TheMovieDb.fs" />
+    <Compile Include="Main.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FSharp.Data">

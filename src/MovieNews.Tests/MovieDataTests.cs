@@ -79,5 +79,17 @@ namespace MovieNews.Tests
 
 		    Assert.AreEqual(expected, actual);
 	    }
-	}
+
+	    [TestMethod]
+	    public void CanGetMovieData()
+	    {	
+		    var info = Movies.GetMovieInfo("Interstellar");
+		    if (info.HasMovie)
+		    {
+			    Console.WriteLine
+			    ($"Name: {info.Movie.Movie.Title}\n" +
+			     $"Poster: {info.Movie.Details.Poster}");
+		    }
+		}
+    }
 }
