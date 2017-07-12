@@ -57,6 +57,8 @@
     <None Include="MovieDetails.json" />
     <None Include="MovieSearch.json" />
     <Compile Include="Netflix.fs" />
+    <Compile Include="NYTReview.fs" />
+    <Compile Include="TheMovieDb.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FSharp.Data">
