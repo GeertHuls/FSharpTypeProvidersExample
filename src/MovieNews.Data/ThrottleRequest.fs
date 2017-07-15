@@ -38,7 +38,7 @@ let createThrottle delay =
         if sleep > 0 then do! Async.Sleep(sleep)
     })
   
-	/// This creates a new message and sends it to the agent.
+  /// This creates a new message and sends it to the agent.
   /// The result is a workflow that waits until the message
   /// is processed and then it returns the downloaded string.
   let download url query = 
