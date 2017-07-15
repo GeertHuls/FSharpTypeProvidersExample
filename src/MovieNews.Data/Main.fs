@@ -37,7 +37,7 @@ let GetMovieInfo name = async {
           Details = details
           Cast = cast
           Review = review } |> Some |> MovieSearchResult 
-    | _ -> return None |> MovieSearchResult }  // backets span over pattern match branches??
+    | _ -> return None |> MovieSearchResult } |> Async.StartAsTask // backets span over pattern match branches??
 
 /// The function that returns top 20 movies from Netflix
 let GetLatestMovies() = async {

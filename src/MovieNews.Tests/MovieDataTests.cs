@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MovieNews.Data;
 using System;
+using System.Threading.Tasks;
 
 namespace MovieNews.Tests
 {
@@ -81,9 +82,9 @@ namespace MovieNews.Tests
 	    }
 
 	    [TestMethod]
-	    public void CanGetMovieData()
+	    public async Task CanGetMovieData()
 	    {	
-		    var info = Movies.GetMovieInfo("Interstellar");
+		    var info = await Movies.GetMovieInfo("Interstellar");
 		    if (info.HasMovie)
 		    {
 			    Console.WriteLine
