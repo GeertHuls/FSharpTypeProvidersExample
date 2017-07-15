@@ -22,7 +22,15 @@ let tryPickReviewByName name response =
       Link = r.Link.Url
       LinkText = r.Link.SuggestedLinkText } )
 
-let tryDownloadReviewByNme name = 
-  let q = ["api-key", apiKey; "query", name]
-  let response = Http.RequestString(baseUrl, q)
-  tryPickReviewByName name response
+
+// The New York times api allows at most five requests
+// per second. The throttling agant will do just that.
+
+let throttler =
+  Utils.createThrottle 200
+
+let tryDownloadReviewByNme name = async {
+    let q = ["api-key", apiKey; "query", name]
+    let! response = throttler baseUrl q
+    return tryPickReviewByName name response
+  }

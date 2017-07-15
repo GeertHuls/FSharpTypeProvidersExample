@@ -13,26 +13,34 @@ type MovieSearchResult(result:option<Movie>) =
 /// The method returns a value of type 'MovieSearchResult'.
 /// Note that we also follow the PascalCase naming convention
 /// to make the function appear as a normal static method.
-let GetMovieInfo name = 
-  let info =
-    TheMovieDb.tryGetMovieId name
-    |> Option.map (fun id ->
-        TheMovieDb.getMovieDetails id,
-        TheMovieDb.getMovieCast id )
-  let review =
-    NYTReview.tryDownloadReviewByNme name
-  let basics = 
-    Netflix.getTop100()
-    |> Seq.tryFind (fun m -> m.Title = name)
+let GetMovieInfo name = async {
+    // run the request in parallel to make the requests faster
+    // using Async.StartChild.
+    let! infoWork =
+      TheMovieDb.getMovieInfoByName name
+      |> Async.StartChild
 
-  match basics, info with
-  | Some(basics), Some(details, cast) ->
-      { Movie = basics 
-        Details = details
-        Cast = cast
-        Review = review } |> Some |> MovieSearchResult
-  | _ -> None |> MovieSearchResult
+    let! reviewWork =
+      NYTReview.tryDownloadReviewByNme name
+      |> Async.StartChild
+
+    // wait when all requests are finished:
+    let! top100 = Netflix.getTop100()
+    let! review = reviewWork
+    let! info = infoWork
+
+    let basics = top100 |> Seq.tryFind (fun m -> m.Title = name)
+    match basics, info with
+    | Some(basics), Some(details, cast) ->
+      return
+        { Movie = basics 
+          Details = details
+          Cast = cast
+          Review = review } |> Some |> MovieSearchResult 
+    | _ -> return None |> MovieSearchResult }  // backets span over pattern match branches??
 
 /// The function that returns top 20 movies from Netflix
-let GetLatestMovies() = 
-  Netflix.getTop100() |> Seq.take 20
+let GetLatestMovies() = async {
+    let! top100 = Netflix.getTop100()
+    return top100 |> Seq.take 20
+  }
