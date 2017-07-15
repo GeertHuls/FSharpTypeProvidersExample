@@ -11,8 +11,13 @@ type ThrottleMessage =
      Reply : AsyncReplyChannel<string> }
 
 
-// this again will be used for the New York times reviews and
+// The purpose of the throttling agent is to limit the numer of
+// requests sent to the different services. Next all donwloads
+// are going to be asynchronous to avoid blocking any threads
+// during the calls.
+// This agent will be used for the New York times reviews and
 // the movie database.
+
 /// This function takes a 'delay'. It initializes a new 
 /// instance of the agent, wraps it in a 'download' function
 /// and then returns this new function as a result - check
