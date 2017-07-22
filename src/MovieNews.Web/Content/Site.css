@@ -1,0 +1,83 @@
+﻿.jumbotron {
+	background: linear-gradient(to bottom, #4D3491, #443E60);
+}
+.jumbotron h1 {
+	font-family: 'Poiret One', cursive;
+	margin-top:10px;
+	margin-left:10px;
+	color:white;
+}
+.jumbotron p {
+	margin-top:20px;
+	font-family:Karma, serif;
+	color:white;
+}
+.jumbotron h1 i {
+	font-size:60%;
+	position:relative;
+	top:-10px;
+}
+.jumbotron h1 .fa-star-half-o,
+.jumbotron h1 .fa-star-o,
+.jumbotron h1 .fa-star {
+	float:right;
+	margin:20px 20px 0px 0px;
+}
+
+h2 {
+	font-family: 'Poiret One', cursive;
+}
+.main ul li {
+	list-style-type:none;
+	margin:0px;
+	padding:0px;
+}
+.main ul {
+	margin:0px;
+	padding:0px;
+}
+.main li img {
+	float:left;
+}
+.main p {
+	font:12pt Karma, serif;
+}
+.main li p {
+	min-height: 100px;
+	margin-left: 90px;
+}
+
+.details p, .details li, .cast td, .cast th {
+	font-size:12pt;
+	font-family:Karma, serif;
+}
+.cast th {
+	font-variant:small-caps;
+	font-weight:400;
+}
+.details ul {
+	margin:20px 0px 20px 0px;
+	padding:0px;
+}
+.details ul li {
+	margin:0px 0px 5px 0px;
+	list-style-type:none;
+	line-height:15pt;
+}
+.details li strong {
+	font-weight:normal;
+	font-variant:small-caps;
+	margin-right:6px;
+}
+.details img {
+	margin-left:1%;
+	width:98%;
+	margin-top:20px;
+	margin-right:1%;
+}
+.details h2 {
+	margin-top:0px;
+}
+.details p, .details ul {
+	margin-bottom:20px;
+}

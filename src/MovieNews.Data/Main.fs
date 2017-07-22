@@ -42,5 +42,4 @@ let GetMovieInfo name = async {
 /// The function that returns top 20 movies from Netflix
 let GetLatestMovies() = async {
     let! top100 = Netflix.getTop100()
-    return top100 |> Seq.take 20
-  }
+    return top100 |> Seq.take 20 } |> Async.StartAsTask
