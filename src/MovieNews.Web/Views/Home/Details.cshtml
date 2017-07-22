@@ -1,7 +1,93 @@
-﻿
+﻿@model MovieNews.Data.Movie
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = Model.Movie.Title;
 }
 
-<h2>Details</h2>
+<div class="jumbotron">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>
+					@{var stars = (float)Model.Details.AverageVote / 2.0; }
+					@for (var i = 4; i >= 0; i--)
+					{
+						if (stars > i + 0.2 && stars < i + 0.8)
+						{
+							<i class="fa fa-star-half-o"></i>
+						}
+						else if (stars > i + 0.2)
+						{
+							<i class="fa fa-star"></i>
+						}
+						else
+						{
+							<i class="fa fa-star-o"></i>
+						}
+					}
+					@Model.Movie.Title
+				</h1>
+				<p>
+					@Model.Movie.Summary
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
 
+<div class="container details">
+	<div class="row">
+
+		<div class="col-md-7">
+			<p>@Model.Details.Overview</p>
+			<h2>Movie Details</h2>
+			<ul>
+				<li><strong>Released:</strong>
+					@Model.Details.Released.ToString("D")</li>
+				@if (!String.IsNullOrEmpty(Model.Details.Homepage))
+				{
+					<li><strong>Visit:</strong>
+						<a href="@Model.Details.Homepage">
+							@Model.Details.Homepage
+						</a>
+					</li>
+				}
+				<li><strong>Genres:</strong>
+					@String.Join(", ", Model.Details.Genres)</li>
+				<li><strong>Producers:</strong>
+					@String.Join(", ", Model.Details.Companies)</li>
+				<li><strong>Countries:</strong>
+					@String.Join(", ", Model.Details.Countries)</li>
+
+				<img src="http://image.tmdb.org/t/p/w500/@Model.Details.Poster" />
+			</ul>
+		</div>
+
+		<div class="col-md-5 cast">
+			@if (Model.Review != null)
+			{
+				var review = Model.Review.Value;
+				<h2>Movie review</h2>
+				<p>
+					@Html.Raw(review.Summary)
+					Read more in the <a href="@review.Link">
+						New York Times review from
+						@review.Published.ToString("d MMMM, yyyy")
+					</a>.
+				</p>
+			}
+
+			<h2>Movie cast</h2>
+			<table class="table table-striped">
+				<thead>
+				<tr><th>Actor</th><th>Character</th></tr>
+				</thead>
+				@foreach (var cast in Model.Cast)
+				{
+					<tr><td>@cast.Actor</td><td>@cast.Character</td></tr>
+				}
+			</table>
+
+		</div>
+
+	</div>
+</div>

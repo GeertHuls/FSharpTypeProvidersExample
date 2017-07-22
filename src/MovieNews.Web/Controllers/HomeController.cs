@@ -12,9 +12,15 @@ namespace MovieNews.Web.Controllers
             return View(movies);
         }
 
-        public ActionResult Details(string title)
+        public async Task<ActionResult> Details(string title)
         {
-            return View();
+	        var details = await Movies.GetMovieInfo(title);
+	        if (details.HasMovie)
+	        {
+		        return View(details.Movie);
+	        }
+
+            return View("MovieNotFound");
         }
     }
 }
