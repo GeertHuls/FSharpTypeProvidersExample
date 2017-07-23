@@ -12,3 +12,9 @@ type MovieNews = SqlProgrammabilityProvider<ConnStr>
 let latest = new MovieNews.dbo.Tables.LatestMovies()
 latest.AddRow("Test title", "Test description", 1)
 latest.Update()
+
+type DeleteCmd = SqlCommandProvider<"
+    DELETE FROM LatestMovies", ConnStr>
+
+let cmd = new DeleteCmd(ConnStr)
+cmd.Execute()
